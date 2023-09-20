@@ -31,55 +31,6 @@
           },
   
 
-	function getAccessToken(messagesElement) {
-        return fetch(tokenUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `client_id=${encodeURIComponent(clientId)}&client_secret=${encodeURIComponent(clientSecret)}&grant_type=client_credentials`
-        })
-        .then(response => response.json())
-        .then(data => {
-            accessToken = data.access_token;
-            console.log('Access token:', accessToken);
-           if (messagesElement) {
-            messagesElement.textContent = '';  // Clear the messages
-            messagesElement.textContent += 'Access token: ' + accessToken + '\n';}
-            })
-           
-        .catch(error => console.error('Error:', error));
-    }
-    
-    window.getAccessToken = getAccessToken;
-    
-    function getCsrfToken(messagesElement) {
-        if (!accessToken) {
-            console.log('Access token is not set');
-            return;
-        }
-
-        return fetch(csrfTokenUrl, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${accessToken}`,
-                'x-csrf-token': 'fetch',
-                'x-sap-sac-custom-auth' :  'true'
-            }
-        })
-        .then(response => {
-            csrfToken = response.headers.get('x-csrf-token');
-            console.log('CSRF token:', csrfToken);
-             if (messagesElement) {
-           messagesElement.textContent = '';  // Clear the messages
-          messagesElement.textContent += 'CSRF token: ' + csrfToken + '\n';}
-
-        })
-        .catch(error => console.error('Error:', error));
-    }
-    
-    window.getCsrfToken = getCsrfToken;
-    
         };    
             
         }        
