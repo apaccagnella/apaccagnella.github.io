@@ -29,8 +29,13 @@
           headers: {                
                 'x-csrf-token': 'fetch',                
             },
-  	console.log(options);
-
+  	  try {
+           let csrfResponse = await fetch(url, csrfOptions);
+		if (!csrfResponse.ok) {
+          throw new Error(`HTTP error! status: ${csrfResponse.status}`);
+        } else {
+			console.log(csrfResponse);
+	}
         };    
             
         }        
