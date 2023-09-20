@@ -20,24 +20,25 @@
             });           
         }
 
-        fireChanged() {
-            console.log("OnClick Triggered");
-	 const url = "https://libertyutilities-q.us10.hcs.cloud.sap/api/v1/csrf";
+	    
+	
 
-        let options = {
-          method: "GET",
-          headers: {                
-                'x-csrf-token': 'fetch',                
-            },
-		 };
-  	  try {
-           let csrfResponse = await fetch(url, csrfOptions);
-		if (!csrfResponse.ok) {
-          throw new Error(`HTTP error! status: ${csrfResponse.status}`);
-        } else {
-			console.log(csrfResponse);
-	}
-        };    
+	   
+        fireChanged() {
+        console.log("OnClick Triggered");
+	const url = "https://libertyutilities-q.us10.hcs.cloud.sap/api/v1/csrf";
+         return fetch(url, { method: 'GET',  headers: {
+                'x-csrf-token': 'fetch',} })
+        .then(response => {
+           var csrfToken = response.headers.get('x-csrf-token');
+            console.log('CSRF token:', csrfToken);
+             if (messagesElement) {
+           messagesElement.textContent = '';  // Clear the messages
+          messagesElement.textContent += 'CSRF token: ' + csrfToken + '\n';}
+
+        })
+        .catch(error => console.error('Error:', error));
+  	};    
             
         }        
         
