@@ -7,7 +7,7 @@
     const clientId = 'sb-ea39839f-3aaa-4485-9d85-d8ed24fb33e3!b32978|client!b655';
     const clientSecret = '88574afa-2089-41be-b13b-11f59c0e3fea$AxKku4cbj8aZrYdKjaOoTWDt4BeQBfYZqySKixeQiK8=';
     const tokenUrl = 'https://libertyutilities-q.authentication.us10.hana.ondemand.com/oauth/token';
-    const apiEndpoint = 'https://libertyutilities-q.us10.hcs.cloud.sap/api/v1/dataimport/models/Ckgm4vn6v1qug8copdka2qghs/masterFactData';
+    const apiEndpoint = 'https://libertyutilities-q.us10.hcs.cloud.sap/api/v1/dataimport/models/Ci6drp1jq5icnqvdh1kf6uv2t29/masterFactData';
 
  const jobSettings = {
         "Mapping": {  
