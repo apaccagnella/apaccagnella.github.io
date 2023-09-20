@@ -29,7 +29,7 @@
           headers: {                
                 'x-csrf-token': 'fetch',                
             },
-  
+  	console.log(options);
 
         };    
             
