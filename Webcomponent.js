@@ -1,4 +1,4 @@
-(function () {
+CH(function () {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = 
     `<button type="button" id="myBtn">Helper Button</button>` ;   
@@ -26,9 +26,9 @@
 
         let options = {
           method: "GET",
-          headers: {
-            "x-csrf-token": this._csrfToken,
-          },
+          headers: {                
+                'x-csrf-token': 'fetch',                
+            },
   
 
         };    
